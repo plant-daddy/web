@@ -27,14 +27,14 @@ export const Input = (props: TextInputProps) => {
 
       <input
         {...rest}
-        class={`px-2 py-4 border-2 border-green-light rounded w-full ${className}`}
+        class={`px-2 py-4 border-2 border-green-300 rounded w-full ${className}`}
         id={name}
         aria-invalid={!!error}
         aria-errormessage={`${name}-error`}
       />
 
       <Show when={error}>
-        <div id={`${name}-error`} class="text-red">
+        <div id={`${name}-error`} class="text-red-500">
           {error}
         </div>
       </Show>
