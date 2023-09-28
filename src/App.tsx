@@ -1,15 +1,16 @@
+import { Router as SolidRouter } from '@solidjs/router'
 import type { Component } from 'solid-js'
 
-import { Input } from './components/global'
-import { Button } from './components/global/Button'
+import Router from './router'
+import { AuthProvider } from './contexts/auth'
 
 const App: Component = () => {
   return (
-    <form class="flex flex-col items-center justify-center gap-4 h-screen mx-64">
-      <Input name="email" label="Email" placeholder="Email" />
-      <Input type="password" name="password" label="Password" placeholder="Password" />
-      <Button class="bg-green-light">Sign in</Button>
-    </form>
+    <SolidRouter>
+      <AuthProvider>
+        <Router />
+      </AuthProvider>
+    </SolidRouter>
   )
 }
 

@@ -1,13 +1,11 @@
-import { Route, Routes, Router as SolidRouter } from '@solidjs/router'
-import App from './App'
+import { Route, Routes } from '@solidjs/router'
 import { type Component } from 'solid-js'
+import { SignIn } from './pages/public/SignIn'
 
 const Router: Component = () => (
-  <SolidRouter>
-    <Routes>
-      <Route path="/" component={App} />
-    </Routes>
-  </SolidRouter>
+  <Routes>
+    <Route path="/" component={SignIn} />
+  </Routes>
 )
 
 export default Router
