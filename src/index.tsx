@@ -1,7 +1,8 @@
 /* @refresh reload */
-import { render } from "solid-js/web";
+import { render } from 'solid-js/web'
 
-import "./index.css";
-import Router from "./router";
+import './index.css'
+import Router from './router'
 
-render(() => <Router />, document.getElementById("root")!);
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+render(() => <Router />, document.getElementById('root')!)

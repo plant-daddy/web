@@ -1,21 +1,27 @@
-import { JSX, Show, splitProps } from "solid-js";
+import { type JSX, Show, splitProps } from 'solid-js'
 
 type TextInputProps = JSX.InputHTMLAttributes<HTMLInputElement> & {
-  label?: string;
-  error?: string;
-};
+  label?: string
+  error?: string
+}
 
-export function Input(props: TextInputProps) {
-  const [{ error, label, name, required, class: className }, rest] = splitProps(
-    props,
-    ["label", "name", "error", "required", "class"]
-  );
+export const Input = (props: TextInputProps) => {
+  const [{ error, label, name, required, class: className }, rest] = splitProps(props, [
+    'label',
+    'name',
+    'error',
+    'required',
+    'class'
+  ])
 
   return (
     <div class="flex flex-col items-start w-full">
       <Show when={label}>
         <label for={name}>
-          {label} {required && <span>*</span>}
+          {label}
+          <Show when={required}>
+            <span>*</span>
+          </Show>
         </label>
       </Show>
 
@@ -33,5 +39,5 @@ export function Input(props: TextInputProps) {
         </div>
       </Show>
     </div>
-  );
+  )
 }
