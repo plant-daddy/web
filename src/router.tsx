@@ -3,7 +3,9 @@ import { createEffect, type Component } from 'solid-js'
 
 import { SignIn } from './pages/public/SignIn'
 import { Dashboard } from './pages/private/Dashboard'
-import { Faq } from './pages/public/Faq'
+import { PublicFaq } from './pages/public/Faq'
+import { Sidebar } from './components/sidebar'
+import { PrivateFaq } from './pages/private/Faq'
 
 const Protected = () => {
   const navigate = useNavigate()
@@ -13,7 +15,14 @@ const Protected = () => {
     if (!token) navigate('/', { replace: true })
   })
 
-  return <Outlet />
+  return (
+    <div class="flex gap-16 p-16 h-screen">
+      <Sidebar />
+      <div class="bg-gray-800 p-8 rounded-lg flex-grow">
+        <Outlet />
+      </div>
+    </div>
+  )
 }
 
 const Public = () => {
@@ -21,7 +30,7 @@ const Public = () => {
   const token = localStorage.getItem('pd-solid-token')
 
   createEffect(() => {
-    if (token) navigate('/dashboard', { replace: true })
+    if (token) navigate('/dashboard/plants', { replace: true })
   })
 
   return <Outlet />
@@ -33,9 +42,10 @@ const Router: Component = () => (
       <Route path={'/'} component={SignIn} />
     </Route>
     <Route path="/dashboard" component={Protected}>
-      <Route path={'/'} component={Dashboard} />
+      <Route path={'/plants'} component={Dashboard} />
+      <Route path={'/faq'} component={PrivateFaq} />
     </Route>
-    <Route path={'/faq'} component={Faq} />
+    <Route path={'/faq'} component={PublicFaq} />
     <Route path="*" component={() => <div>Page Not found!!!</div>} />
   </Routes>
 )

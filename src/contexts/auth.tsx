@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/indent */
+import { useNavigate } from '@solidjs/router'
 import { type JSX, createContext, createSignal, useContext, onMount } from 'solid-js'
 
 interface AuthContextData {
@@ -11,6 +12,8 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData)
 
 export const AuthProvider = (props: { children: JSX.Element }) => {
   const [token, setToken] = createSignal<string | undefined>()
+
+  const navigate = useNavigate()
 
   onMount(() => {
     void loadStorageData()
@@ -35,6 +38,7 @@ export const AuthProvider = (props: { children: JSX.Element }) => {
   const signOut = async () => {
     setToken(undefined)
     localStorage.removeItem('pd-solid-token')
+    navigate('/')
   }
 
   return (
