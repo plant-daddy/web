@@ -15,7 +15,6 @@ export const Sidebar = () => {
         <img src={name} alt="Plant Daddy" />
         <NavSection title="GENERAL">
           <NavLink title="Plants" href="/dashboard/plants" icon={<TbPlant size={18} />} />
-          <NavLink title="FAQ" href="/dashboard/faq" icon={<TbHelp size={18} />} />
         </NavSection>
         <NavSection title="PUBLIC">
           <NavLink title="FAQ" href="/faq" icon={<TbHelp size={18} />} />

@@ -4,6 +4,7 @@ import { FiTrash2 } from 'solid-icons/fi'
 import { type Component, For, Match, Switch } from 'solid-js'
 
 import { Button } from '../../../components/global/Button'
+import { Spinner } from '../../../components/global/Spinner'
 import { usePlants } from '../../../hooks'
 
 export const PlantsList: Component = () => {
@@ -34,7 +35,7 @@ export const PlantsList: Component = () => {
         <tbody>
           <Switch>
             <Match when={plants.isLoading}>
-              <p>Loading...</p>
+              <Spinner />
             </Match>
             <Match when={plants.isSuccess}>
               <For each={plants.data}>

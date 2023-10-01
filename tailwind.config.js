@@ -21,6 +21,11 @@ module.exports = {
     fontFamily: {
       sans: ['Rubik', 'sans-serif'],
       nunito: ['Nunito', 'sans-serif']
+    },
+    extend: {
+      width: {
+        960: '960px'
+      }
     }
   }
 }

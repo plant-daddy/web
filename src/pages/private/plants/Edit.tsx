@@ -3,7 +3,7 @@ import { Link } from '@solidjs/router'
 import { FaSolidChevronDown, FaSolidChevronUp, FaSolidUpload } from 'solid-icons/fa'
 import { type Component, Match, Show, Switch, createSignal } from 'solid-js'
 
-import { Input } from '../../../components/global'
+import { Input, TextArea } from '../../../components/global'
 import { Button } from '../../../components/global/Button'
 
 export const EditPlant: Component = () => {
@@ -15,7 +15,7 @@ export const EditPlant: Component = () => {
       <hr class="my-6 border-gray-700" />
 
       <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-        <div class="p-6 bg-gray-100 border-dashed border-2 border-gray-400 rounded-lg items-center text-center cursor-pointer">
+        <div class="p-4 bg-gray-100 border-dashed border-2 border-gray-400 rounded-lg items-center text-center cursor-pointer">
           <input type="file" class="hidden" accept="image/*" />
           <label class="flex flex-col align-center">
             <FaSolidUpload size={36} class="self-center mb-2" />
@@ -33,13 +33,11 @@ export const EditPlant: Component = () => {
           <Input required name="common_name" label="Common Name" />
           <Input required name="botanical_name" label="Botanical Name" />
         </div>
-        <Input required name="description" label="Description" />
-        <Input required name="light" label="Light" />
-        <Input required name="soil" label="Soil" />
-        <Input required name="water" label="Water" />
-        <Input required name="fertilizer" label="Fertilizer" />
-
-        {/* <Input name="password_confirmation" label="Image" /> */}
+        <TextArea required name="description" label="Description" />
+        <TextArea required name="light" label="Light" />
+        <TextArea required name="soil" label="Soil" />
+        <TextArea required name="water" label="Water" />
+        <TextArea required name="fertilizer" label="Fertilizer" />
       </div>
 
       <div class="flex my-6 justify-between px-4">

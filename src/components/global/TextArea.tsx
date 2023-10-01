@@ -1,11 +1,11 @@
 import { type JSX, Show, splitProps } from 'solid-js'
 
-type TextInputProps = JSX.InputHTMLAttributes<HTMLInputElement> & {
+type TextAreaProps = JSX.TextareaHTMLAttributes<HTMLTextAreaElement> & {
   label?: string
   error?: string
 }
 
-export const Input = (props: TextInputProps) => {
+export const TextArea = (props: TextAreaProps) => {
   const [{ error, label, name, required, class: className }, rest] = splitProps(props, [
     'label',
     'name',
@@ -25,10 +25,11 @@ export const Input = (props: TextInputProps) => {
         </label>
       </Show>
 
-      <input
+      <textarea
         {...rest}
         class={`p-2  border-2 border-green-500 rounded w-full bg-gray-800 ${className}`}
         id={name}
+        rows={3}
         aria-invalid={!!error}
         aria-errormessage={`${name}-error`}
       />

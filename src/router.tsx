@@ -2,11 +2,11 @@ import { Outlet, Route, Routes, useNavigate } from '@solidjs/router'
 import { type Component, createEffect } from 'solid-js'
 
 import { Sidebar } from './components/sidebar'
-import { PrivateFaq } from './pages/private/Faq'
 import { CreatePlant } from './pages/private/plants/Create'
 import { EditPlant } from './pages/private/plants/Edit'
 import { PlantsList } from './pages/private/plants/List'
-import { PublicFaq } from './pages/public/Faq'
+import { FaqDetails } from './pages/public/Faq/Details'
+import { PublicFaq } from './pages/public/Faq/List'
 import { SignIn } from './pages/public/SignIn'
 
 const Protected = () => {
@@ -18,7 +18,7 @@ const Protected = () => {
   })
 
   return (
-    <div class="flex gap-16 p-16 h-screen w-screen">
+    <div class="flex gap-16 p-16 h-screen">
       <Sidebar />
       <div class="bg-gray-800 p-8 rounded-lg flex-grow overflow-y-scroll justify-start">
         <Outlet />
@@ -49,9 +49,11 @@ const Router: Component = () => (
         <Route path={'/create'} component={CreatePlant} />
         <Route path={'/:id'} component={EditPlant} />
       </Route>
-      <Route path={'/faq'} component={PrivateFaq} />
     </Route>
-    <Route path={'/faq'} component={PublicFaq} />
+    <Route path={'/faq'}>
+      <Route path={'/'} component={PublicFaq} />
+      <Route path={'/:id'} component={FaqDetails} />
+    </Route>
     <Route path="*" component={() => <div>Page Not found!!!</div>} />
   </Routes>
 )
