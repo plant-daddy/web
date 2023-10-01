@@ -1,4 +1,5 @@
 import type { Component } from 'solid-js'
+
 import { Input } from '../../components/global'
 import { Button } from '../../components/global/Button'
 import { useAuth } from '../../contexts/auth'
@@ -11,7 +12,7 @@ export const SignIn: Component = () => {
       <Input name="email" label="Email" placeholder="Email" />
       <Input type="password" name="password" label="Password" placeholder="Password" />
       <Button
-        class="bg-green-300"
+        class="bg-green-300 w-full"
         onClick={async () => {
           await signIn({ email: 'a', password: 'a' })
         }}>

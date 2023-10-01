@@ -1,11 +1,10 @@
-import { TbPlant, TbHelp } from 'solid-icons/tb'
-
-import { NavLink } from './NavLink'
-import { NavSection } from './NavSection'
+import { TbHelp, TbPlant } from 'solid-icons/tb'
 
 import name from '../../assets/name.png'
-import { Button } from '../global/Button'
 import { useAuth } from '../../contexts/auth'
+import { Button } from '../global/Button'
+import { NavLink } from './NavLink'
+import { NavSection } from './NavSection'
 
 export const Sidebar = () => {
   const { signOut } = useAuth()
@@ -22,7 +21,7 @@ export const Sidebar = () => {
           <NavLink title="FAQ" href="/faq" icon={<TbHelp size={18} />} />
         </NavSection>
       </div>
-      <Button class="bg-red-500 self-end" onClick={signOut}>
+      <Button class="bg-red-500 w-full" onClick={signOut}>
         Log out
       </Button>
     </div>

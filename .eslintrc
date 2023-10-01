@@ -25,6 +25,13 @@
     "@typescript-eslint/consistent-type-assertions": "off",
     "@typescript-eslint/member-delimiter-style": "off",
     "@typescript-eslint/no-misused-promises": "off",
-    "curly": "off"
-  }
+    "curly": "off",
+    "no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+    ]
+  },
+  "plugins": ["unused-imports"]
 }

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/indent */
 import { useNavigate } from '@solidjs/router'
-import { type JSX, createContext, createSignal, useContext, onMount } from 'solid-js'
+import { type JSX, createContext, createSignal, onMount, useContext } from 'solid-js'
 
 interface AuthContextData {
   signIn: (params: { email: string; password: string }) => Promise<void>

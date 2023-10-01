@@ -27,7 +27,7 @@ export const Input = (props: TextInputProps) => {
 
       <input
         {...rest}
-        class={`px-2 py-4 border-2 border-green-300 rounded w-full ${className} bg-gray-800`}
+        class={`px-2 py-4 border-2 border-green-500 rounded w-full ${className} bg-gray-800`}
         id={name}
         aria-invalid={!!error}
         aria-errormessage={`${name}-error`}
