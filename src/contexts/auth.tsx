@@ -33,6 +33,7 @@ export const AuthProvider = (props: { children: JSX.Element }) => {
   const signIn = async ({ email, password }: { email: string; password: string }) => {
     setToken(email)
     localStorage.setItem('pd-solid-token', email)
+    navigate('/dashboard/plants')
   }
 
   const signOut = async () => {
