@@ -3,7 +3,7 @@
 @layer base {
   html {
     @apply text-gray-50;
-    @apply bg-gray-900;
+    @apply bg-gray-50;
   }
 
   ::-webkit-scrollbar {

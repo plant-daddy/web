@@ -18,7 +18,7 @@ const Protected = () => {
   })
 
   return (
-    <div class="flex gap-16 p-16 h-screen">
+    <div class="flex gap-16 p-16 h-screen bg-gray-900">
       <Sidebar />
       <div class="bg-gray-800 p-8 rounded-lg flex-grow overflow-y-scroll justify-start">
         <Outlet />
@@ -35,7 +35,11 @@ const Public = () => {
     if (token) navigate('/dashboard/plants', { replace: true })
   })
 
-  return <Outlet />
+  return (
+    <div class="bg-gray-900">
+      <Outlet />
+    </div>
+  )
 }
 
 const Router: Component = () => (

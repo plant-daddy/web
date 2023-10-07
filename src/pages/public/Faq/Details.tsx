@@ -15,7 +15,7 @@ export const FaqDetails: Component = () => {
     <div class="bg-gray-50 h-screen text-green-800">
       <FaqHeader />
       <div class="flex justify-center m-12">
-        <div class="flex flex-col w-2/4 gap-8">
+        <div class="flex flex-col md:w-2/4 gap-8">
           <Link href="/faq">
             <FiChevronLeft class="text-green-800 text-2xl self-start border-2 rounded-xl" />
           </Link>
