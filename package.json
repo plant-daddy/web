@@ -9,7 +9,8 @@
     "serve": "vite preview",
     "lint": "yarn eslint --fix \"./**/*.tsx\"",
     "format": "yarn prettier --write --config .prettierrc \"./**/*.{ts,tsx,js,jsx,json,md}\"",
-    "fix": "yarn format && yarn lint"
+    "fix": "yarn format && yarn lint",
+    "typecheck": "tsc --noEmit"
   },
   "license": "MIT",
   "devDependencies": {

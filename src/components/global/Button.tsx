@@ -13,7 +13,7 @@ export const Button = (props: JSX.ButtonHTMLAttributes<HTMLButtonElement>) => {
       {...rest}
       type={type}
       disabled={disabled}
-      class={`disabled:opacity-50 active:opacity-80 items-center justify-center rounded p-4  hover:opacity-90 transition-all ${className}`}>
+      class={`disabled:opacity-50 active:opacity-80 items-center justify-center rounded p-4 text-gray-900 hover:opacity-90 transition-all ${className}`}>
       {children}
     </button>
   )

@@ -18,9 +18,9 @@ const Protected = () => {
   })
 
   return (
-    <div class="flex gap-16 p-16 h-screen bg-gray-900">
+    <div class="grid grid-cols-5 h-screen">
       <Sidebar />
-      <div class="bg-gray-800 p-8 rounded-lg flex-grow overflow-y-scroll justify-start">
+      <div class="px-8 py-16 overflow-y-hidden justify-start col-span-4 bg-green-900">
         <Outlet />
       </div>
     </div>
@@ -36,7 +36,7 @@ const Public = () => {
   })
 
   return (
-    <div class="bg-gray-900">
+    <div class="bg-green-900 h-screen flex items-center justify-center">
       <Outlet />
     </div>
   )
@@ -48,8 +48,8 @@ const Router: Component = () => (
       <Route path={'/'} component={SignIn} />
     </Route>
     <Route path="/dashboard" component={Protected}>
-      <Route path={'/plants'}>
-        <Route path={'/'} component={PlantsList} />
+      <Route path="/plants" component={PlantsList} />
+      <Route path={'/plants'} component={PlantsList}>
         <Route path={'/create'} component={CreatePlant} />
         <Route path={'/:id'} component={EditPlant} />
       </Route>

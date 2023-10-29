@@ -1,2 +1,3 @@
 export * from './Input'
-export * from './TextArea'
+export * from './Pagination/index'
+export * from './ImagePicker'

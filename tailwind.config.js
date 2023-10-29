@@ -7,7 +7,9 @@ module.exports = {
       green: {
         300: '#65CCB7',
         500: '#327F6B',
-        800: '#124647'
+        700: '#124647',
+        800: '#11222E',
+        900: '#0C1922'
       },
       gray: {
         50: '#F2F2F2',
@@ -25,6 +27,19 @@ module.exports = {
     extend: {
       width: {
         960: '960px'
+      },
+      zIndex: {
+        '-1': '-1'
+      },
+      transformOrigin: {
+        0: '0%'
+      },
+      borderWidth: {
+        1: '1px'
+      },
+      padding: {
+        21: '84px',
+        45: '180px'
       }
     }
   }

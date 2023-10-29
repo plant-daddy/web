@@ -1,41 +1,37 @@
 import { type JSX, Show, splitProps } from 'solid-js'
 
-type TextInputProps = JSX.InputHTMLAttributes<HTMLInputElement> & {
-  label?: string
+type TextInputProps = Omit<JSX.InputHTMLAttributes<HTMLInputElement>, 'placeholder'> & {
+  label: string
   error?: string
 }
 
 export const Input = (props: TextInputProps) => {
-  const [{ error, label, name, required, class: className }, rest] = splitProps(props, [
-    'label',
-    'name',
-    'error',
-    'required',
-    'class'
-  ])
+  const [local, rest] = splitProps(props, ['label', 'name', 'error', 'required', 'class'])
 
   return (
-    <div class="flex flex-col items-start w-full">
-      <Show when={label}>
-        <label for={name}>
-          {label}
-          <Show when={required}>
+    <div class="w-full">
+      <div class={`outline relative focus-within:border-gray-300 rounded ${local.class}`}>
+        <input
+          {...rest}
+          placeholder=" "
+          id={local.name}
+          aria-invalid={!!local.error}
+          aria-errormessage={`${local.name}-error`}
+          class="block p-4 w-full focus:outline-none bg-transparent"
+        />
+        <label
+          for={local.name}
+          class="text-gray-300 absolute top-0 text-lg bg-green-800 p-3 duration-300 origin-0">
+          {local.label}
+          <Show when={local.required}>
             <span>*</span>
           </Show>
         </label>
-      </Show>
+      </div>
 
-      <input
-        {...rest}
-        class={`p-2  border-2 border-green-500 rounded w-full bg-gray-800 ${className}`}
-        id={name}
-        aria-invalid={!!error}
-        aria-errormessage={`${name}-error`}
-      />
-
-      <Show when={error}>
-        <div id={`${name}-error`} class="text-red-500">
-          {error}
+      <Show when={local.error}>
+        <div id={`${local.name}-error`} class="text-red-500">
+          {local.error}
         </div>
       </Show>
     </div>
